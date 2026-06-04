@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SeeBuild — AI + AR Construction Quality Control</title>
-  <meta name="description" content="Detect deviations from project documentation in real time using any mobile device. Fewer defects, fewer reworks. Pilots open." />
-  <meta property="og:title" content="SeeBuild — AI + AR Construction Quality Control" />
-  <meta property="og:description" content="Mobile CV/AR tool for on-site construction control. Fewer reworks — faster inspections." />
+  <title>SeeBuild — I See What I Build</title>
+  <meta name="description" content="AI + AR construction quality control in real time. Errors caught before they become problems. Pilot program open 2026." />
+  <meta property="og:title" content="SeeBuild — I See What I Build" />
+  <meta property="og:description" content="AI-powered hybrid system for construction quality control. Fewer reworks — faster inspections." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
   <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
@@ -38,30 +38,47 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ── SITE-WIDE BG IMAGE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('bg.jpg') center center / cover no-repeat;
+      opacity: .045;
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav, section, footer { position: relative; z-index: 1; }
+
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5%;
       height: 68px;
-      background: rgba(10,13,18,.88);
+      background: rgba(10,13,18,.9);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      display: flex; align-items: center; gap: .65rem;
+      display: flex; align-items: center; gap: .6rem;
       text-decoration: none;
     }
     .nav-logo img {
-      height: 36px; width: auto;
-      filter: none;
-      opacity: .92;
+      height: 34px; width: auto;
+      /* показує логотип як є — без інвертування */
     }
     .nav-logo-text {
       font-size: 1.2rem; font-weight: 800; letter-spacing: -.4px;
-      color: var(--text);
+      color: #ffffff;
     }
-    .nav-logo-text span { color: var(--accent); }
+    .nav-tagline {
+      font-size: .7rem; color: var(--muted); letter-spacing: .5px;
+      font-weight: 500; margin-left: .1rem; margin-top: .1rem;
+      text-transform: uppercase;
+    }
+    .nav-logo-wrap { display: flex; flex-direction: column; justify-content: center; }
+
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500;
@@ -86,17 +103,16 @@
     }
     .hero-glow {
       position: absolute; width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,194,255,.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,194,255,.13) 0%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%,-50%);
       pointer-events: none;
     }
     .hero-glow2 {
       position: absolute; width: 500px; height: 500px; border-radius: 50%;
       background: radial-gradient(circle, rgba(123,92,255,.1) 0%, transparent 70%);
-      top: 30%; right: -10%;
-      pointer-events: none;
+      top: 30%; right: -10%; pointer-events: none;
     }
-    .hero-content { position: relative; max-width: 800px; }
+    .hero-content { position: relative; max-width: 820px; }
     .badge {
       display: inline-flex; align-items: center; gap: .5rem;
       padding: .35rem 1rem; border-radius: 999px;
@@ -111,6 +127,13 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
+    .hero-brand {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 600; color: var(--muted); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: .6rem;
+    }
+    .hero-brand em { color: var(--accent); font-style: normal; }
+
     .hero h1 {
       font-size: clamp(2.1rem, 5.2vw, 3.8rem);
       font-weight: 800; line-height: 1.12;
@@ -120,7 +143,7 @@
     .hero h1 .hl2 { color: var(--accent2); }
     .hero p {
       font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--muted); max-width: 600px; margin: 0 auto 2.5rem;
+      color: var(--muted); max-width: 620px; margin: 0 auto 2.5rem;
     }
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
@@ -137,6 +160,7 @@
       transition: border-color .2s, transform .2s;
     }
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
+
     .hero-stats {
       display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem;
       flex-wrap: wrap;
@@ -157,9 +181,22 @@
       font-size: clamp(1.6rem, 3.5vw, 2.6rem);
       font-weight: 800; letter-spacing: -.5px; margin-bottom: 1rem;
     }
-    .section-sub { color: var(--muted); max-width: 560px; font-size: 1.05rem; }
+    .section-sub { color: var(--muted); max-width: 600px; font-size: 1.05rem; }
     .centered { text-align: center; }
     .centered .section-sub { margin: 0 auto; }
+
+    /* ── CORE MISSION BANNER ── */
+    .mission {
+      background: linear-gradient(135deg, rgba(0,194,255,.08), rgba(123,92,255,.08));
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 60px 5%; text-align: center;
+    }
+    .mission-quote {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 700; max-width: 860px; margin: 0 auto;
+      line-height: 1.4; color: var(--text);
+    }
+    .mission-quote span { color: var(--accent); }
 
     /* ── PROBLEM ── */
     .problem { background: var(--surface); }
@@ -197,7 +234,28 @@
     .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .6rem; }
     .step p { color: var(--muted); font-size: .9rem; }
 
-    /* ── VALUE ── */
+    /* ── AI ENGINE ── */
+    .ai-engine { background: var(--surface2); }
+    .ai-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2.5rem; margin-top: 3rem; align-items: start;
+    }
+    @media(max-width:760px){ .ai-grid { grid-template-columns: 1fr; } }
+    .ai-text h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: .75rem; }
+    .ai-text p { color: var(--muted); font-size: .95rem; margin-bottom: 1rem; }
+    .ai-features { display: flex; flex-direction: column; gap: .75rem; }
+    .ai-feature {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      display: flex; gap: .75rem; align-items: flex-start;
+      transition: border-color .2s;
+    }
+    .ai-feature:hover { border-color: var(--accent); }
+    .ai-feature-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .05rem; }
+    .ai-feature h4 { font-size: .9rem; font-weight: 700; margin-bottom: .2rem; }
+    .ai-feature p { color: var(--muted); font-size: .83rem; margin: 0; }
+
+    /* ── VALUE BY ROLE ── */
     .value { background: var(--surface); }
     .roles-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
@@ -242,7 +300,7 @@
     .benefit h3 { font-size: .95rem; font-weight: 700; }
     .benefit p { color: var(--muted); font-size: .85rem; }
 
-    /* ── TECH ── */
+    /* ── TECH CHIPS ── */
     .tech { background: var(--surface); }
     .tech-chips { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem; }
     .chip {
@@ -252,6 +310,38 @@
       transition: border-color .2s, color .2s;
     }
     .chip:hover { border-color: var(--accent); color: var(--text); }
+
+    /* ── BOOK ── */
+    .book-section { background: var(--surface2); }
+    .book-card {
+      max-width: 700px; margin: 2.5rem auto 0;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 2rem 2.5rem;
+      display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
+    }
+    .book-icon { font-size: 3.5rem; flex-shrink: 0; }
+    .book-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
+    .book-info p { color: var(--muted); font-size: .9rem; margin-bottom: 1rem; }
+    .book-info a {
+      display: inline-block; padding: .55rem 1.25rem; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-weight: 700; font-size: .9rem; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .book-info a:hover { opacity: .85; }
+
+    /* ── IP / LEGAL ── */
+    .ip-badges {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; justify-content: center;
+    }
+    .ip-badge {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .65rem 1.25rem; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--surface);
+      font-size: .85rem; font-weight: 600; color: var(--muted);
+    }
+    .ip-badge .ip-icon { font-size: 1.1rem; }
+    .ip-badge span { color: var(--text); }
 
     /* ── ROADMAP ── */
     .roadmap-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.25rem; }
@@ -278,17 +368,17 @@
     .roadmap-badge.later { background: rgba(123,92,255,.1); color: var(--accent2); }
 
     /* ── PILOT FORM ── */
-    .pilot { background: var(--surface2); }
+    .pilot { background: var(--surface); }
     .pilot-wrap {
       max-width: 600px; margin: 3rem auto 0;
-      background: var(--surface); border: 1px solid var(--border);
+      background: var(--bg); border: 1px solid var(--border);
       border-radius: var(--radius-lg); padding: 2.5rem;
     }
     .form-group { margin-bottom: 1.25rem; }
     label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .5rem; color: var(--muted); }
     input, select, textarea {
       width: 100%; padding: .75rem 1rem; border-radius: 9px;
-      border: 1px solid var(--border); background: var(--bg);
+      border: 1px solid var(--border); background: var(--surface);
       color: var(--text); font-size: .95rem; font-family: inherit;
       transition: border-color .2s; outline: none;
     }
@@ -317,12 +407,12 @@
       display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;
     }
     .about-avatar {
-      width: 80px; height: 80px; border-radius: 50%;
+      width: 82px; height: 82px; border-radius: 50%;
       overflow: hidden; flex-shrink: 0;
       border: 2px solid var(--accent);
       box-shadow: 0 0 0 4px rgba(0,194,255,.12);
     }
-    .about-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .about-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .about-text h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .35rem; }
     .about-text .about-role { color: var(--accent); font-size: .85rem; font-weight: 600; margin-bottom: .75rem; }
     .about-text p { color: var(--muted); font-size: .9rem; }
@@ -340,17 +430,13 @@
       border-top: 1px solid var(--border);
       padding: 2rem 5%;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1rem; background: var(--bg);
     }
     .footer-logo { display: flex; align-items: center; gap: .5rem; }
-    .footer-logo img {
-      height: 28px; width: auto;
-       opacity: .7;
-    }
-    .footer-logo-text { font-weight: 800; font-size: 1.05rem; }
-    .footer-logo-text span { color: var(--accent); }
+    .footer-logo img { height: 26px; width: auto; }
+    .footer-logo-text { font-weight: 800; font-size: 1.05rem; color: #ffffff; }
     footer p { color: var(--muted); font-size: .82rem; }
-    .footer-contact { display: flex; gap: 1.25rem; }
+    .footer-contact { display: flex; gap: 1.25rem; flex-wrap: wrap; }
     .footer-contact a { color: var(--muted); text-decoration: none; font-size: .85rem; transition: color .2s; }
     .footer-contact a:hover { color: var(--accent); }
 
@@ -366,8 +452,10 @@
       .roadmap-item { flex-wrap: wrap; }
       .roadmap-badge { margin-left: 0; }
       .pilot-wrap { padding: 1.75rem; }
+      .book-card { flex-direction: column; text-align: center; }
       footer { flex-direction: column; text-align: center; }
       .footer-contact { justify-content: center; }
+      .nav-tagline { display: none; }
     }
   </style>
 </head>
@@ -377,11 +465,14 @@
 <nav>
   <a href="#" class="nav-logo">
     <img src="logo.png" alt="SeeBuild logo" />
-    <span class="nav-logo-text">See<span>Build</span></span>
+    <div class="nav-logo-wrap">
+      <span class="nav-logo-text">SeeBuild</span>
+      <span class="nav-tagline">I See What I Build</span>
+    </div>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#how">How It Works</a></li>
-    <li><a href="#value">Benefits</a></li>
+    <li><a href="#ai">AI Engine</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#pilot" class="nav-cta">Join Pilot</a></li>
   </ul>
@@ -396,14 +487,15 @@
   <div class="hero-glow2"></div>
   <div class="hero-content">
     <div class="badge"><span class="badge-dot"></span>Pilot Program Open — 2026</div>
+    <div class="hero-brand">SeeBuild &nbsp;·&nbsp; <em>I See What I Build</em></div>
     <h1>
       <span class="hl">AI + AR</span> Quality Control<br />
       for Construction —<br />from any <span class="hl2">Mobile Device</span>
     </h1>
     <p>
-      Detect deviations from project documentation in real time —
-      whether you're holding a smartphone, tablet, or smart glasses.
-      Fewer defects, fewer reworks, objective proof of quality.
+      Errors fixed before they become problems. SeeBuild detects deviations
+      from project documentation the moment they happen — so builders can focus
+      on building, not inspecting.
     </p>
     <div class="hero-btns">
       <a href="#pilot" class="btn-primary">Become a Pilot Partner</a>
@@ -426,6 +518,15 @@
   </div>
 </section>
 
+<!-- MISSION BANNER -->
+<div class="mission">
+  <p class="mission-quote">
+    SeeBuild's core mission: <span>free builders from manual inspections.</span><br />
+    Errors are corrected at the earliest stage — the moment something deviates
+    from what it should be, the system sees it first.
+  </p>
+</div>
+
 <!-- PROBLEM -->
 <section class="problem">
   <div class="section-tag">Problem</div>
@@ -443,8 +544,8 @@
     </div>
     <div class="problem-card">
       <div class="problem-icon">⏳</div>
-      <h3>Slow Documentation</h3>
-      <p>Defects are photographed separately, described by hand, shared via messengers — and get lost.</p>
+      <h3>Control Arrives Too Late</h3>
+      <p>Most problems don't appear suddenly — they begin as small deviations that go unnoticed until it's too late to fix without loss.</p>
     </div>
     <div class="problem-card">
       <div class="problem-icon">📂</div>
@@ -465,17 +566,68 @@
     <div class="step">
       <div class="step-num">1</div>
       <h3>Point Your Device</h3>
-      <p>Computer Vision analyzes elements in the frame — walls, rebar, structures — and compares them against project documentation in real time. Works on any mobile device.</p>
+      <p>Computer Vision analyzes structural elements in real time — walls, rebar, geometry — and instantly compares them against project documentation. Works on any mobile device: smartphone, tablet, or smart glasses.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <h3>Get AR Guidance</h3>
-      <p>Deviations are overlaid directly on screen: lines, zones, and labels showing the exact size of the error. A voice assistant tells you what to fix and where.</p>
+      <p>Deviations appear directly on screen: AR overlay lines, zones, and labels with the exact size of each error. A voice assistant guides the team on what to correct and where — without stopping work.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <h3>Record & Sync</h3>
-      <p>An inspection report is generated automatically and synced to the cloud. Client, contractor, and supervisor all see the same data — in real time.</p>
+      <p>An inspection report is generated automatically and synced to the cloud. Client, contractor, and supervisor all see the same data — in real time, with a full decision history preserved.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI ENGINE -->
+<section class="ai-engine" id="ai">
+  <div class="section-tag">SeeBuild AI</div>
+  <div class="section-title">A Hybrid AI That Learns With Every Project</div>
+  <div class="ai-grid">
+    <div class="ai-text">
+      <h3>Not just a tool — a partner that grows smarter on every site</h3>
+      <p>
+        SeeBuild has its own AI engine, built on the philosophy described in the book
+        <em>"SeeBuild: I See What I Build"</em> — an engineering mindset, not just algorithms.
+        The system doesn't automate decisions. It automates observation, so that
+        human judgment remains where it belongs.
+      </p>
+      <p>
+        The AI continuously learns from new projects, expanding its knowledge base — while
+        already carrying the full weight of global construction standards from day one.
+      </p>
+    </div>
+    <div class="ai-features">
+      <div class="ai-feature">
+        <div class="ai-feature-icon">🌍</div>
+        <div>
+          <h4>Country-Aware Standards</h4>
+          <p>Automatically applies local building codes — Ukrainian DBN in Ukraine, IBC in the USA, Eurocodes in Europe. The right standard, in the right place.</p>
+        </div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-icon">🧠</div>
+        <div>
+          <h4>Learns From Every Project</h4>
+          <p>Each completed site enriches the global knowledge base. Patterns, deviations, and decisions accumulate — reducing recurring mistakes across all future projects.</p>
+        </div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-icon">🤫</div>
+        <div>
+          <h4>Silent Until It Matters</h4>
+          <p>SeeBuild knows when to stay silent. No signal means the process is within limits. When attention is needed, the system speaks briefly and to the point.</p>
+        </div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-icon">⚖️</div>
+        <div>
+          <h4>Decisions Stay Human</h4>
+          <p>The AI shows risks and trajectories — but never replaces the engineer. Responsibility stays with the person. SeeBuild supports thinking, not substitutes it.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -535,7 +687,7 @@
     <div class="benefit">
       <div class="benefit-val">100%</div>
       <h3>Documented Defects</h3>
-      <p>Every deviation is archived. Nothing gets lost in a group chat.</p>
+      <p>Every deviation is archived automatically. Nothing gets lost in a group chat.</p>
     </div>
     <div class="benefit">
       <div class="benefit-val">×3</div>
@@ -549,19 +701,66 @@
 <section class="tech">
   <div class="section-tag">Technology</div>
   <div class="section-title">Under the Hood</div>
-  <p class="section-sub" style="margin-top:.5rem">Computer vision, augmented reality, and cloud architecture — unified in a single platform built for any mobile device, today and tomorrow.</p>
+  <p class="section-sub" style="margin-top:.5rem">Computer vision, augmented reality, and a self-learning AI — unified in a single platform built for any mobile device, today and tomorrow.</p>
   <div class="tech-chips">
     <span class="chip">Computer Vision</span>
     <span class="chip">Augmented Reality (AR)</span>
+    <span class="chip">SeeBuild AI Engine</span>
     <span class="chip">Real-time Object Detection</span>
     <span class="chip">Voice Interface</span>
     <span class="chip">Cloud API</span>
     <span class="chip">Edge Processing</span>
+    <span class="chip">Country-Aware Building Codes</span>
     <span class="chip">Automated Documentation</span>
-    <span class="chip">Cloud Sync</span>
-    <span class="chip">AR Deviation Overlay</span>
+    <span class="chip">Engineering Memory</span>
     <span class="chip">Smart Glasses Ready</span>
     <span class="chip">Device-Agnostic Design</span>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book-section">
+  <div class="centered">
+    <div class="section-tag">The Book</div>
+    <div class="section-title">The Philosophy Behind SeeBuild</div>
+    <p class="section-sub">Before the product — a mindset. The book describes how SeeBuild AI thinks, observes, and works alongside engineers on site.</p>
+  </div>
+  <div class="book-card">
+    <div class="book-icon">📖</div>
+    <div class="book-info">
+      <h3>SeeBuild: I See What I Build</h3>
+      <p>
+        An engineering mindset on the construction site. The book explores how control
+        becomes part of observation — not a delayed procedure. It lays out the philosophy
+        that drives the SeeBuild AI: context over data, clarity over complexity, and
+        decisions that remain human.
+      </p>
+      <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener">
+        Read on Amazon →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- IP / LEGAL -->
+<section style="background: var(--surface); padding: 60px 5%;">
+  <div class="centered">
+    <div class="section-tag">Intellectual Property</div>
+    <div class="section-title">Protected & Building Globally</div>
+  </div>
+  <div class="ip-badges">
+    <div class="ip-badge">
+      <span class="ip-icon">🇺🇦</span>
+      <span>Trademark registration in progress — Ukraine</span>
+    </div>
+    <div class="ip-badge">
+      <span class="ip-icon">🌐</span>
+      <span>International patent application filed — WIPO</span>
+    </div>
+    <div class="ip-badge">
+      <span class="ip-icon">©</span>
+      <span>Concept & book authored by Andrii Drozdovskyi</span>
+    </div>
   </div>
 </section>
 
@@ -582,7 +781,7 @@
       <div class="roadmap-q">Q3 '26</div>
       <div>
         <h3>POC on a Real Site</h3>
-        <p>Wall verticality and geometry deviation detection from any mobile device. AR labels + basic inspection report.</p>
+        <p>Wall verticality and geometry deviation detection. AR labels + automated inspection report. First SeeBuild AI feedback loop.</p>
       </div>
       <span class="roadmap-badge soon">Soon</span>
     </div>
@@ -590,15 +789,15 @@
       <div class="roadmap-q">Q4 '26</div>
       <div>
         <h3>Closed Pilot</h3>
-        <p>Full cycle: detection → AR → voice → cloud report. Speed and accuracy metrics. First partner feedback.</p>
+        <p>Full cycle: detection → AR → voice → cloud report. Country-aware building codes active. First partner feedback and AI learning iteration.</p>
       </div>
       <span class="roadmap-badge later">Planned</span>
     </div>
     <div class="roadmap-item">
       <div class="roadmap-q">2027</div>
       <div>
-        <h3>Public Launch & Scale</h3>
-        <p>Multi-project cloud, BIM integrations, smart glasses support, international market expansion.</p>
+        <h3>Public Launch & Global Scale</h3>
+        <p>Multi-project cloud, BIM integrations, smart glasses support, expansion to international markets with localized building standards.</p>
       </div>
       <span class="roadmap-badge later">Future</span>
     </div>
@@ -606,28 +805,16 @@
 </section>
 
 <!-- PILOT FORM -->
-<!--
-  FORMSPREE SETUP (5 minutes):
-  1. Go to [formspree.io](https://formspree.io) → sign up free
-  2. Create a new form → copy your Form ID (looks like: xyzabcde)
-  3. Replace YOUR_FORM_ID below with your actual ID
-  4. Done — submissions go straight to SeeBuild@proton.me
--->
 <section class="pilot" id="pilot">
   <div class="centered">
     <div class="section-tag">Pilot</div>
     <div class="section-title">Become a Pilot Partner</div>
-    <p class="section-sub">We're looking for general contractors and developers with active sites to run the first POC together.</p>
+    <p class="section-sub">Looking for general contractors and developers with active sites to run the first real-world POC together.</p>
   </div>
   <div class="pilot-wrap">
-      <form id="pilotForm" action="https://formspree.io/f/mvznoodn" method="POST">
-
-
-    
-      <!-- Redirect back to your page after submit -->
-      <input type="hidden" name="_next" value="https://seebuild.tech" />
+    <form action="[formspree.io](https://formspree.io/f/mvznoodn)" method="POST">
       <input type="hidden" name="_subject" value="New Pilot Application — SeeBuild" />
-
+      <input type="hidden" name="_next" value="[seebuild.tech](https://seebuild.tech/#pilot)" />
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="John Smith" required />
@@ -662,9 +849,9 @@
 </section>
 
 <!-- ABOUT -->
-<section>
+<section style="background: var(--surface2);">
   <div class="centered">
-    <div class="section-tag">Team</div>
+    <div class="section-tag">Founder</div>
     <div class="section-title">The Person Behind SeeBuild</div>
   </div>
   <div class="about-wrap">
@@ -675,14 +862,16 @@
       <h3>Andrii Drozdovskyi</h3>
       <div class="about-role">Founder & Inventor · SeeBuild</div>
       <p>
-        Founder and author of the SeeBuild concept. I combine hands-on knowledge of construction
-        processes with a systems-level approach to AI product design — focused on reducing reworks
-        and delivering objective, AR-backed quality control on every site.
-        Author of a conceptual book on AI and systems thinking.
+        Founder and concept author of SeeBuild. Combines hands-on knowledge of
+        construction processes with a systems-level approach to AI product design.
+        Author of <em>"SeeBuild: I See What I Build"</em> — the book that lays out
+        the engineering philosophy behind the platform. Trademark registered in Ukraine,
+        international patent application filed with WIPO.
         Open to partnerships and pre-seed investment.
       </p>
       <div class="about-links">
-        <a href="mailto:SeeBuild@proton.me" class="about-link">✉ Email</a>
+        <a href="mailto:SeeBuild@proton.me" class="about-link">✉ SeeBuild@proton.me</a>
+        <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener" class="about-link">📖 Book</a>
         <a href="#pilot" class="about-link">📋 Join Pilot</a>
       </div>
     </div>
@@ -693,17 +882,17 @@
 <footer>
   <div class="footer-logo">
     <img src="logo.png" alt="SeeBuild" />
-    <span class="footer-logo-text">See<span>Build</span></span>
+    <span class="footer-logo-text">SeeBuild</span>
   </div>
-  <p>© 2026 SeeBuild. AI + AR Construction Quality Control.</p>
+  <p>© 2026 SeeBuild. AI + AR Construction Quality Control. &nbsp;·&nbsp; I See What I Build</p>
   <div class="footer-contact">
     <a href="mailto:SeeBuild@proton.me">SeeBuild@proton.me</a>
+    <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener">Book</a>
     <a href="#pilot">Join Pilot</a>
   </div>
 </footer>
 
 <script>
-  // Burger menu
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => navLinks.classList.toggle('open'));
