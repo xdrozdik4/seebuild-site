@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SeeBuild — I See What I Build</title>
-  <meta name="description" content="AI + AR construction quality control in real time. Errors caught before they become problems. Pilot program open 2026." />
+  <meta name="description" content="SeeBuild reduces construction errors to a minimum — cutting build time and costs. AI + AR quality control from any mobile device. Open to investors and licensing partners." />
   <meta property="og:title" content="SeeBuild — I See What I Build" />
-  <meta property="og:description" content="AI-powered hybrid system for construction quality control. Fewer reworks — faster inspections." />
+  <meta property="og:description" content="AI + AR hybrid system that minimizes construction errors in real time. Fewer mistakes — shorter timelines — lower costs." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
   <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
@@ -38,17 +38,17 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── SITE-WIDE BG IMAGE ── */
+    /* ── BACKGROUND IMAGE ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background: url('bg.jpg') center center / cover no-repeat;
-      opacity: .045;
+      opacity: .09;
       pointer-events: none;
       z-index: 0;
     }
-    nav, section, footer { position: relative; z-index: 1; }
+    nav, section, .mission, footer { position: relative; z-index: 1; }
 
     /* ── NAV ── */
     nav {
@@ -56,34 +56,18 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5%;
       height: 68px;
-      background: rgba(10,13,18,.9);
-      backdrop-filter: blur(16px);
+      background: rgba(10,13,18,.92);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      display: flex; align-items: center; gap: .6rem;
-      text-decoration: none;
-    }
-    .nav-logo img {
-      height: 34px; width: auto;
-      /* показує логотип як є — без інвертування */
-    }
-    .nav-logo-text {
-      font-size: 1.2rem; font-weight: 800; letter-spacing: -.4px;
-      color: #ffffff;
-    }
-    .nav-tagline {
-      font-size: .7rem; color: var(--muted); letter-spacing: .5px;
-      font-weight: 500; margin-left: .1rem; margin-top: .1rem;
-      text-transform: uppercase;
-    }
+    .nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; }
     .nav-logo-wrap { display: flex; flex-direction: column; justify-content: center; }
+    .nav-logo-text { font-size: 1.2rem; font-weight: 800; letter-spacing: -.4px; color: #ffffff; }
+    .nav-tagline { font-size: .68rem; color: var(--muted); letter-spacing: .6px; font-weight: 500; text-transform: uppercase; }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500;
-      transition: color .2s;
-    }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
       padding: .5rem 1.25rem; border-radius: 8px;
@@ -102,49 +86,37 @@
       position: relative; overflow: hidden; text-align: center;
     }
     .hero-glow {
-      position: absolute; width: 700px; height: 700px; border-radius: 50%;
+      position: absolute; width: 750px; height: 750px; border-radius: 50%;
       background: radial-gradient(circle, rgba(0,194,255,.13) 0%, transparent 70%);
-      top: 50%; left: 50%; transform: translate(-50%,-50%);
-      pointer-events: none;
+      top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;
     }
     .hero-glow2 {
       position: absolute; width: 500px; height: 500px; border-radius: 50%;
       background: radial-gradient(circle, rgba(123,92,255,.1) 0%, transparent 70%);
       top: 30%; right: -10%; pointer-events: none;
     }
-    .hero-content { position: relative; max-width: 820px; }
+    .hero-content { position: relative; max-width: 840px; }
     .badge {
       display: inline-flex; align-items: center; gap: .5rem;
       padding: .35rem 1rem; border-radius: 999px;
-      border: 1px solid rgba(0,194,255,.3);
-      background: rgba(0,194,255,.07);
+      border: 1px solid rgba(0,194,255,.3); background: rgba(0,194,255,.07);
       color: var(--accent); font-size: .8rem; font-weight: 600;
       margin-bottom: 1.75rem; letter-spacing: .5px; text-transform: uppercase;
     }
-    .badge-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
-      animation: pulse 2s infinite;
-    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-    .hero-brand {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      font-weight: 600; color: var(--muted); letter-spacing: 2px;
-      text-transform: uppercase; margin-bottom: .6rem;
-    }
+    .hero-brand { font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: .6rem; }
     .hero-brand em { color: var(--accent); font-style: normal; }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 5.2vw, 3.8rem);
-      font-weight: 800; line-height: 1.12;
-      letter-spacing: -1.5px; margin-bottom: 1.25rem;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1.25rem;
     }
     .hero h1 .hl  { color: var(--accent); }
     .hero h1 .hl2 { color: var(--accent2); }
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--muted); max-width: 620px; margin: 0 auto 2.5rem;
-    }
+    .hero p { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--muted); max-width: 640px; margin: 0 auto 2.5rem; }
+
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
       display: inline-block; padding: .85rem 2rem; border-radius: 10px;
@@ -161,10 +133,7 @@
     }
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
 
-    .hero-stats {
-      display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem;
-      flex-wrap: wrap;
-    }
+    .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem; flex-wrap: wrap; }
     .stat { text-align: center; }
     .stat-val { font-size: 2rem; font-weight: 800; color: var(--accent); }
     .stat-val.g { color: var(--green); }
@@ -173,83 +142,47 @@
 
     /* ── SECTIONS ── */
     section { padding: 90px 5%; }
-    .section-tag {
-      display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; color: var(--accent); margin-bottom: .75rem;
-    }
-    .section-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-      font-weight: 800; letter-spacing: -.5px; margin-bottom: 1rem;
-    }
+    .section-tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -.5px; margin-bottom: 1rem; }
     .section-sub { color: var(--muted); max-width: 600px; font-size: 1.05rem; }
     .centered { text-align: center; }
     .centered .section-sub { margin: 0 auto; }
 
-    /* ── CORE MISSION BANNER ── */
+    /* ── MISSION BANNER ── */
     .mission {
-      background: linear-gradient(135deg, rgba(0,194,255,.08), rgba(123,92,255,.08));
+      background: linear-gradient(135deg, rgba(0,194,255,.08), rgba(123,92,255,.09));
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 60px 5%; text-align: center;
+      padding: 64px 5%; text-align: center;
     }
-    .mission-quote {
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      font-weight: 700; max-width: 860px; margin: 0 auto;
-      line-height: 1.4; color: var(--text);
-    }
+    .mission-quote { font-size: clamp(1.15rem, 2.5vw, 1.65rem); font-weight: 700; max-width: 880px; margin: 0 auto; line-height: 1.45; color: var(--text); }
     .mission-quote span { color: var(--accent); }
+    .mission-sub { margin-top: 1rem; color: var(--muted); font-size: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
     /* ── PROBLEM ── */
     .problem { background: var(--surface); }
-    .problem-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .problem-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem 1.5rem;
-      transition: border-color .2s;
-    }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .problem-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; transition: border-color .2s; }
     .problem-card:hover { border-color: rgba(0,194,255,.3); }
     .problem-icon { font-size: 2rem; margin-bottom: 1rem; }
     .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
     .problem-card p { color: var(--muted); font-size: .9rem; }
 
     /* ── HOW IT WORKS ── */
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 2rem; margin-top: 3.5rem;
-    }
-    .step {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 2rem 1.75rem;
-      transition: border-color .2s, transform .2s;
-    }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; margin-top: 3.5rem; }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 1.75rem; transition: border-color .2s, transform .2s; }
     .step:hover { border-color: var(--accent2); transform: translateY(-3px); }
-    .step-num {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: .95rem; color: #fff; margin-bottom: 1.25rem;
-    }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .95rem; color: #fff; margin-bottom: 1.25rem; }
     .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .6rem; }
     .step p { color: var(--muted); font-size: .9rem; }
 
     /* ── AI ENGINE ── */
     .ai-engine { background: var(--surface2); }
-    .ai-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2.5rem; margin-top: 3rem; align-items: start;
-    }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; align-items: start; }
     @media(max-width:760px){ .ai-grid { grid-template-columns: 1fr; } }
-    .ai-text h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: .75rem; }
+    .ai-text h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .75rem; }
     .ai-text p { color: var(--muted); font-size: .95rem; margin-bottom: 1rem; }
     .ai-features { display: flex; flex-direction: column; gap: .75rem; }
-    .ai-feature {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1rem 1.25rem;
-      display: flex; gap: .75rem; align-items: flex-start;
-      transition: border-color .2s;
-    }
+    .ai-feature { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; gap: .75rem; align-items: flex-start; transition: border-color .2s; }
     .ai-feature:hover { border-color: var(--accent); }
     .ai-feature-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .05rem; }
     .ai-feature h4 { font-size: .9rem; font-weight: 700; margin-bottom: .2rem; }
@@ -257,181 +190,97 @@
 
     /* ── VALUE BY ROLE ── */
     .value { background: var(--surface); }
-    .roles-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .role-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 2rem;
-      transition: border-color .2s;
-    }
+    .roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .role-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: border-color .2s; }
     .role-card:hover { border-color: var(--green); }
-    .role-label {
-      font-size: .75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .8px; color: var(--green); margin-bottom: 1rem;
-    }
+    .role-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--green); margin-bottom: 1rem; }
     .role-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .75rem; }
     .role-list { list-style: none; }
-    .role-list li {
-      color: var(--muted); font-size: .9rem; padding: .35rem 0;
-      border-bottom: 1px solid var(--border); display: flex; gap: .6rem;
-    }
+    .role-list li { color: var(--muted); font-size: .9rem; padding: .35rem 0; border-bottom: 1px solid var(--border); display: flex; gap: .6rem; }
     .role-list li:last-child { border-bottom: none; }
     .role-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
 
     /* ── BENEFITS ── */
-    .benefits-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 1.25rem; margin-top: 3rem;
-    }
-    .benefit {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.5rem; background: var(--surface);
-      display: flex; flex-direction: column; gap: .5rem;
-      transition: border-color .2s;
-    }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.25rem; margin-top: 3rem; }
+    .benefit { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; background: var(--surface); display: flex; flex-direction: column; gap: .5rem; transition: border-color .2s; }
     .benefit:hover { border-color: var(--accent); }
-    .benefit-val {
-      font-size: 2.2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .benefit-val { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .benefit h3 { font-size: .95rem; font-weight: 700; }
     .benefit p { color: var(--muted); font-size: .85rem; }
 
-    /* ── TECH CHIPS ── */
-    .tech { background: var(--surface); }
+    /* ── TECH ── */
+    .tech { background: var(--surface2); }
     .tech-chips { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem; }
-    .chip {
-      padding: .5rem 1.1rem; border-radius: 999px;
-      border: 1px solid var(--border); background: var(--bg);
-      font-size: .85rem; font-weight: 500; color: var(--muted);
-      transition: border-color .2s, color .2s;
-    }
+    .chip { padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); font-size: .85rem; font-weight: 500; color: var(--muted); transition: border-color .2s, color .2s; }
     .chip:hover { border-color: var(--accent); color: var(--text); }
 
     /* ── BOOK ── */
-    .book-section { background: var(--surface2); }
-    .book-card {
-      max-width: 700px; margin: 2.5rem auto 0;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 2rem 2.5rem;
-      display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
-    }
+    .book-section { background: var(--surface); }
+    .book-card { max-width: 720px; margin: 2.5rem auto 0; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; transition: border-color .2s; }
+    .book-card:hover { border-color: var(--accent); }
     .book-icon { font-size: 3.5rem; flex-shrink: 0; }
     .book-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
     .book-info p { color: var(--muted); font-size: .9rem; margin-bottom: 1rem; }
-    .book-info a {
-      display: inline-block; padding: .55rem 1.25rem; border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff; font-weight: 700; font-size: .9rem; text-decoration: none;
-      transition: opacity .2s;
-    }
+    .book-info a { display: inline-block; padding: .55rem 1.25rem; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-weight: 700; font-size: .9rem; text-decoration: none; transition: opacity .2s; }
     .book-info a:hover { opacity: .85; }
 
-    /* ── IP / LEGAL ── */
-    .ip-badges {
-      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; justify-content: center;
-    }
-    .ip-badge {
-      display: flex; align-items: center; gap: .6rem;
-      padding: .65rem 1.25rem; border-radius: 10px;
-      border: 1px solid var(--border); background: var(--surface);
-      font-size: .85rem; font-weight: 600; color: var(--muted);
-    }
+    /* ── IP ── */
+    .ip-section { background: var(--surface2); padding: 60px 5%; }
+    .ip-badges { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; justify-content: center; }
+    .ip-badge { display: flex; align-items: center; gap: .6rem; padding: .65rem 1.25rem; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); font-size: .85rem; font-weight: 600; color: var(--muted); }
     .ip-badge .ip-icon { font-size: 1.1rem; }
     .ip-badge span { color: var(--text); }
 
+    /* ── INVESTOR / PARTNER ── */
+    .invest { background: var(--surface); }
+    .invest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .invest-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: border-color .2s, transform .2s; }
+    .invest-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .invest-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .invest-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--accent); margin-bottom: .6rem; }
+    .invest-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .6rem; }
+    .invest-card p { color: var(--muted); font-size: .9rem; }
+
     /* ── ROADMAP ── */
     .roadmap-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.25rem; }
-    .roadmap-item {
-      display: flex; gap: 1.25rem; align-items: flex-start;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.25rem 1.5rem;
-    }
+    .roadmap-item { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
     .roadmap-item.active { border-color: var(--accent); }
-    .roadmap-q {
-      flex-shrink: 0; font-size: .8rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .5px;
-      color: var(--accent); min-width: 50px; padding-top: .1rem;
-    }
+    .roadmap-q { flex-shrink: 0; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--accent); min-width: 50px; padding-top: .1rem; }
     .roadmap-item h3 { font-size: .95rem; font-weight: 700; margin-bottom: .25rem; }
     .roadmap-item p { color: var(--muted); font-size: .85rem; }
-    .roadmap-badge {
-      margin-left: auto; flex-shrink: 0;
-      padding: .2rem .75rem; border-radius: 999px;
-      font-size: .7rem; font-weight: 700; text-transform: uppercase;
-    }
+    .roadmap-badge { margin-left: auto; flex-shrink: 0; padding: .2rem .75rem; border-radius: 999px; font-size: .7rem; font-weight: 700; text-transform: uppercase; }
     .roadmap-badge.now   { background: rgba(0,229,160,.12); color: var(--green); }
     .roadmap-badge.soon  { background: rgba(0,194,255,.1);  color: var(--accent); }
     .roadmap-badge.later { background: rgba(123,92,255,.1); color: var(--accent2); }
 
-    /* ── PILOT FORM ── */
-    .pilot { background: var(--surface); }
-    .pilot-wrap {
-      max-width: 600px; margin: 3rem auto 0;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 2.5rem;
-    }
+    /* ── CONTACT FORM ── */
+    .contact { background: var(--surface2); }
+    .contact-wrap { max-width: 600px; margin: 3rem auto 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; }
     .form-group { margin-bottom: 1.25rem; }
     label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .5rem; color: var(--muted); }
-    input, select, textarea {
-      width: 100%; padding: .75rem 1rem; border-radius: 9px;
-      border: 1px solid var(--border); background: var(--surface);
-      color: var(--text); font-size: .95rem; font-family: inherit;
-      transition: border-color .2s; outline: none;
-    }
+    input, select, textarea { width: 100%; padding: .75rem 1rem; border-radius: 9px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: .95rem; font-family: inherit; transition: border-color .2s; outline: none; }
     input:focus, select:focus, textarea:focus { border-color: var(--accent); }
     select option { background: var(--bg); }
     .checkbox-row { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: 1.5rem; }
-    .checkbox-row input[type="checkbox"] {
-      width: 18px; height: 18px; flex-shrink: 0; margin-top: .1rem;
-      accent-color: var(--accent);
-    }
+    .checkbox-row input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: .1rem; accent-color: var(--accent); }
     .checkbox-row label { font-size: .88rem; color: var(--muted); margin: 0; }
-    .form-submit {
-      width: 100%; padding: .9rem; border-radius: 10px; border: none; cursor: pointer;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff; font-size: 1rem; font-weight: 700; font-family: inherit;
-      transition: opacity .2s, transform .2s;
-    }
+    .form-submit { width: 100%; padding: .9rem; border-radius: 10px; border: none; cursor: pointer; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-size: 1rem; font-weight: 700; font-family: inherit; transition: opacity .2s, transform .2s; }
     .form-submit:hover { opacity: .88; transform: translateY(-1px); }
     .form-note { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 1rem; }
 
     /* ── ABOUT ── */
-    .about-wrap {
-      max-width: 700px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 2.5rem; margin: 3rem auto 0;
-      display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;
-    }
-    .about-avatar {
-      width: 82px; height: 82px; border-radius: 50%;
-      overflow: hidden; flex-shrink: 0;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 0 4px rgba(0,194,255,.12);
-    }
+    .about-wrap { max-width: 720px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; margin: 3rem auto 0; display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+    .about-avatar { width: 82px; height: 82px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid var(--accent); box-shadow: 0 0 0 4px rgba(0,194,255,.12); }
     .about-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .about-text h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .35rem; }
     .about-text .about-role { color: var(--accent); font-size: .85rem; font-weight: 600; margin-bottom: .75rem; }
     .about-text p { color: var(--muted); font-size: .9rem; }
     .about-links { display: flex; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
-    .about-link {
-      padding: .4rem .9rem; border-radius: 8px;
-      border: 1px solid var(--border); color: var(--muted);
-      font-size: .82rem; font-weight: 600; text-decoration: none;
-      transition: border-color .2s, color .2s;
-    }
+    .about-link { padding: .4rem .9rem; border-radius: 8px; border: 1px solid var(--border); color: var(--muted); font-size: .82rem; font-weight: 600; text-decoration: none; transition: border-color .2s, color .2s; }
     .about-link:hover { border-color: var(--accent); color: var(--text); }
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 5%;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
-      gap: 1rem; background: var(--bg);
-    }
+    footer { border-top: 1px solid var(--border); padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: var(--bg); }
     .footer-logo { display: flex; align-items: center; gap: .5rem; }
     .footer-logo img { height: 26px; width: auto; }
     .footer-logo-text { font-weight: 800; font-size: 1.05rem; color: #ffffff; }
@@ -442,16 +291,14 @@
 
     /* ── MOBILE ── */
     @media (max-width: 680px) {
-      .nav-links { display: none; flex-direction: column; position: absolute;
-        top: 68px; left: 0; right: 0; background: var(--surface);
-        padding: 1.5rem 5%; border-bottom: 1px solid var(--border); }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--surface); padding: 1.5rem 5%; border-bottom: 1px solid var(--border); }
       .nav-links.open { display: flex; }
       .burger { display: flex; }
       .hero-stats { gap: 1.75rem; }
       .about-wrap { flex-direction: column; }
       .roadmap-item { flex-wrap: wrap; }
       .roadmap-badge { margin-left: 0; }
-      .pilot-wrap { padding: 1.75rem; }
+      .contact-wrap { padding: 1.75rem; }
       .book-card { flex-direction: column; text-align: center; }
       footer { flex-direction: column; text-align: center; }
       .footer-contact { justify-content: center; }
@@ -473,8 +320,8 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#how">How It Works</a></li>
     <li><a href="#ai">AI Engine</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#pilot" class="nav-cta">Join Pilot</a></li>
+    <li><a href="#invest">Invest</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
   <div class="burger" id="burger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -486,71 +333,75 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-content">
-    <div class="badge"><span class="badge-dot"></span>Pilot Program Open — 2026</div>
+    <div class="badge"><span class="badge-dot"></span>Open to Investors & Licensing Partners — 2026</div>
     <div class="hero-brand">SeeBuild &nbsp;·&nbsp; <em>I See What I Build</em></div>
     <h1>
-      <span class="hl">AI + AR</span> Quality Control<br />
-      for Construction —<br />from any <span class="hl2">Mobile Device</span>
+      Minimize Construction Errors<br />
+      with <span class="hl">AI + AR</span> —<br />
+      from any <span class="hl2">Mobile Device</span>
     </h1>
     <p>
-      Errors fixed before they become problems. SeeBuild detects deviations
-      from project documentation the moment they happen — so builders can focus
-      on building, not inspecting.
+      Fewer errors means shorter build time and lower costs.
+      SeeBuild detects deviations from project documentation the moment they occur —
+      so nothing needs to be redone, and no one has to pay for someone else's mistake.
     </p>
     <div class="hero-btns">
-      <a href="#pilot" class="btn-primary">Become a Pilot Partner</a>
+      <a href="#contact" class="btn-primary">Partner with SeeBuild</a>
       <a href="#how" class="btn-secondary">How It Works →</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-val">−30%</div>
-        <div class="stat-label">Inspection Time</div>
+        <div class="stat-val">↓</div>
+        <div class="stat-label">Build Time</div>
       </div>
       <div class="stat">
-        <div class="stat-val g">−40%</div>
-        <div class="stat-label">Reworks & Defects</div>
+        <div class="stat-val g">↓</div>
+        <div class="stat-label">Construction Costs</div>
       </div>
       <div class="stat">
-        <div class="stat-val p">100%</div>
-        <div class="stat-label">Documented Deviations</div>
+        <div class="stat-val p">↓</div>
+        <div class="stat-label">Errors & Reworks</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MISSION BANNER -->
+<!-- MISSION -->
 <div class="mission">
   <p class="mission-quote">
-    SeeBuild's core mission: <span>free builders from manual inspections.</span><br />
-    Errors are corrected at the earliest stage — the moment something deviates
-    from what it should be, the system sees it first.
+    SeeBuild's mission: <span>reduce construction errors to a minimum.</span><br />
+    Fewer errors — shorter timelines. Shorter timelines — lower costs.<br />
+    Because someone always pays for a mistake. SeeBuild makes sure it never gets that far.
+  </p>
+  <p class="mission-sub">
+    Built to be accessible to every builder on the planet — from a solo contractor to a global construction firm.
   </p>
 </div>
 
 <!-- PROBLEM -->
 <section class="problem">
-  <div class="section-tag">Problem</div>
-  <div class="section-title">Why Construction Quality Control Keeps Failing</div>
+  <div class="section-tag">The Problem</div>
+  <div class="section-title">Why Construction Errors Keep Costing Billions</div>
   <div class="problem-grid">
     <div class="problem-card">
       <div class="problem-icon">💸</div>
-      <h3>10–20% of Costs Are Reworks</h3>
-      <p>Every error found after installation costs several times more to fix than one caught on the spot.</p>
-    </div>
-    <div class="problem-card">
-      <div class="problem-icon">👁️</div>
-      <h3>Subjective Inspections</h3>
-      <p>Manual checks depend on the individual's experience and attention — not on a repeatable standard.</p>
+      <h3>10–20% of Budget Goes to Reworks</h3>
+      <p>Every error found after the fact costs several times more to fix. The earlier it's caught, the cheaper the correction.</p>
     </div>
     <div class="problem-card">
       <div class="problem-icon">⏳</div>
-      <h3>Control Arrives Too Late</h3>
-      <p>Most problems don't appear suddenly — they begin as small deviations that go unnoticed until it's too late to fix without loss.</p>
+      <h3>Delays Compound Fast</h3>
+      <p>One undetected deviation triggers a chain reaction — rescheduling, material reorders, idle crews, and missed deadlines.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">👁️</div>
+      <h3>Manual Inspections Are Subjective</h3>
+      <p>Quality control depends on the individual inspector — not a consistent, objective standard that works every time.</p>
     </div>
     <div class="problem-card">
       <div class="problem-icon">📂</div>
-      <h3>No Single Source of Truth</h3>
-      <p>Developer, contractor, and site supervisor all see different data. Conflicts are the inevitable result.</p>
+      <h3>Control Arrives Too Late</h3>
+      <p>Most problems start as small deviations that go unnoticed — until fixing them means tearing out completed work.</p>
     </div>
   </div>
 </section>
@@ -560,23 +411,23 @@
   <div class="centered">
     <div class="section-tag">Solution</div>
     <div class="section-title">How SeeBuild Works</div>
-    <p class="section-sub">Three steps — from pointing your device to a cloud-signed report. No paperwork, no Excel.</p>
+    <p class="section-sub">Three steps — from pointing your device to a cloud-archived report. No paperwork, no delays.</p>
   </div>
   <div class="steps-grid">
     <div class="step">
       <div class="step-num">1</div>
       <h3>Point Your Device</h3>
-      <p>Computer Vision analyzes structural elements in real time — walls, rebar, geometry — and instantly compares them against project documentation. Works on any mobile device: smartphone, tablet, or smart glasses.</p>
+      <p>Computer Vision analyzes structural elements in real time — walls, rebar, geometry — and instantly compares them to project documentation. Works on any mobile device: smartphone, tablet, or smart glasses.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Get AR Guidance</h3>
-      <p>Deviations appear directly on screen: AR overlay lines, zones, and labels with the exact size of each error. A voice assistant guides the team on what to correct and where — without stopping work.</p>
+      <h3>Get Instant AR Feedback</h3>
+      <p>Deviations appear directly on screen as AR overlays: lines, zones, and labels showing the exact error size. A voice assistant tells the team what to correct — without stopping work.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Record & Sync</h3>
-      <p>An inspection report is generated automatically and synced to the cloud. Client, contractor, and supervisor all see the same data — in real time, with a full decision history preserved.</p>
+      <h3>Auto-Report & Sync</h3>
+      <p>An inspection report is generated automatically and synced to the cloud. The full decision history is preserved — accessible to all stakeholders in real time.</p>
     </div>
   </div>
 </section>
@@ -584,41 +435,41 @@
 <!-- AI ENGINE -->
 <section class="ai-engine" id="ai">
   <div class="section-tag">SeeBuild AI</div>
-  <div class="section-title">A Hybrid AI That Learns With Every Project</div>
+  <div class="section-title">A Hybrid AI Built on 20+ Years of Construction Reality</div>
   <div class="ai-grid">
     <div class="ai-text">
-      <h3>Not just a tool — a partner that grows smarter on every site</h3>
+      <h3>An AI that thinks like an experienced builder — and gets smarter on every project</h3>
       <p>
-        SeeBuild has its own AI engine, built on the philosophy described in the book
-        <em>"SeeBuild: I See What I Build"</em> — an engineering mindset, not just algorithms.
-        The system doesn't automate decisions. It automates observation, so that
-        human judgment remains where it belongs.
+        SeeBuild has its own AI engine, designed from the ground up with the engineering philosophy
+        described in the book <em>"SeeBuild: I See What I Build"</em>. The AI doesn't automate decisions —
+        it automates observation, so human judgment stays exactly where it belongs.
       </p>
       <p>
-        The AI continuously learns from new projects, expanding its knowledge base — while
-        already carrying the full weight of global construction standards from day one.
+        From day one, the system carries a global knowledge base of construction standards.
+        With every new project, it learns — expanding its ability to detect, contextualize, and predict
+        deviations before they become problems.
       </p>
     </div>
     <div class="ai-features">
       <div class="ai-feature">
         <div class="ai-feature-icon">🌍</div>
         <div>
-          <h4>Country-Aware Standards</h4>
-          <p>Automatically applies local building codes — Ukrainian DBN in Ukraine, IBC in the USA, Eurocodes in Europe. The right standard, in the right place.</p>
+          <h4>Country-Aware Building Codes</h4>
+          <p>Automatically applies local standards — Ukrainian DBN in Ukraine, IBC in the USA, Eurocodes in Europe. The right code, in the right place, at the right moment.</p>
         </div>
       </div>
       <div class="ai-feature">
         <div class="ai-feature-icon">🧠</div>
         <div>
           <h4>Learns From Every Project</h4>
-          <p>Each completed site enriches the global knowledge base. Patterns, deviations, and decisions accumulate — reducing recurring mistakes across all future projects.</p>
+          <p>Each completed site enriches the global knowledge base — reducing recurring mistakes across all future projects, for all users of the platform.</p>
         </div>
       </div>
       <div class="ai-feature">
         <div class="ai-feature-icon">🤫</div>
         <div>
           <h4>Silent Until It Matters</h4>
-          <p>SeeBuild knows when to stay silent. No signal means the process is within limits. When attention is needed, the system speaks briefly and to the point.</p>
+          <p>No signal means the process is within limits. When attention is needed, SeeBuild speaks briefly and precisely — no noise, no distraction.</p>
         </div>
       </div>
       <div class="ai-feature">
@@ -641,37 +492,37 @@
       <div class="role-label">General Contractor</div>
       <h3>Fewer Reworks — Better Margins</h3>
       <ul class="role-list">
-        <li>Catch errors before concrete is poured</li>
-        <li>Reduce client penalties and disputes</li>
-        <li>Accelerate project handover</li>
+        <li>Errors caught before concrete is poured</li>
+        <li>No more paying for someone else's mistake</li>
+        <li>Faster handover, fewer penalty clauses</li>
       </ul>
     </div>
     <div class="role-card">
       <div class="role-label">Developer</div>
       <h3>Transparent Quality Control</h3>
       <ul class="role-list">
-        <li>Real-time access to AR inspection reports</li>
+        <li>Real-time AR inspection reports</li>
         <li>Objective data instead of verbal assurances</li>
-        <li>Fewer risks and buyer complaints</li>
+        <li>Lower risk, fewer buyer complaints</li>
       </ul>
     </div>
     <div class="role-card">
       <div class="role-label">Site Supervisor</div>
-      <h3>Faster Inspections</h3>
+      <h3>Inspections Without the Paperwork</h3>
       <ul class="role-list">
-        <li>Standardized checklists instead of freeform notes</li>
-        <li>Automatic defect logging</li>
-        <li>Unified deviation history per project</li>
+        <li>Standardized checks instead of freeform notes</li>
+        <li>Auto-logged defects with full context</li>
+        <li>Complete deviation history per project</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- BENEFITS -->
-<section id="value">
+<section id="results">
   <div class="centered">
-    <div class="section-tag">Results</div>
-    <div class="section-title">What SeeBuild Delivers — in Numbers</div>
+    <div class="section-tag">Impact</div>
+    <div class="section-title">What Changes When Errors Are Caught Early</div>
   </div>
   <div class="benefits-grid">
     <div class="benefit">
@@ -681,18 +532,18 @@
     </div>
     <div class="benefit">
       <div class="benefit-val">−40%</div>
-      <h3>Reworks & Defects</h3>
-      <p>Deviations are caught before concrete is poured or cladding is installed.</p>
+      <h3>Reworks & Waste</h3>
+      <p>Deviations fixed before concrete is poured — not after.</p>
     </div>
     <div class="benefit">
       <div class="benefit-val">100%</div>
-      <h3>Documented Defects</h3>
-      <p>Every deviation is archived automatically. Nothing gets lost in a group chat.</p>
+      <h3>Documented Deviations</h3>
+      <p>Every finding archived automatically. Nothing lost in a group chat.</p>
     </div>
     <div class="benefit">
       <div class="benefit-val">×3</div>
-      <h3>Faster Decision-Making</h3>
-      <p>Voice prompts and clear AR labels mean the crew acts immediately on site.</p>
+      <h3>Faster Decisions</h3>
+      <p>Voice guidance and AR labels — the crew acts immediately, on site.</p>
     </div>
   </div>
 </section>
@@ -701,7 +552,7 @@
 <section class="tech">
   <div class="section-tag">Technology</div>
   <div class="section-title">Under the Hood</div>
-  <p class="section-sub" style="margin-top:.5rem">Computer vision, augmented reality, and a self-learning AI — unified in a single platform built for any mobile device, today and tomorrow.</p>
+  <p class="section-sub" style="margin-top:.5rem">Computer vision, augmented reality, and a self-learning AI — unified in one platform built for any mobile device, today and tomorrow.</p>
   <div class="tech-chips">
     <span class="chip">Computer Vision</span>
     <span class="chip">Augmented Reality (AR)</span>
@@ -711,10 +562,10 @@
     <span class="chip">Cloud API</span>
     <span class="chip">Edge Processing</span>
     <span class="chip">Country-Aware Building Codes</span>
-    <span class="chip">Automated Documentation</span>
     <span class="chip">Engineering Memory</span>
+    <span class="chip">Automated Documentation</span>
     <span class="chip">Smart Glasses Ready</span>
-    <span class="chip">Device-Agnostic Design</span>
+    <span class="chip">Device-Agnostic</span>
   </div>
 </section>
 
@@ -723,27 +574,27 @@
   <div class="centered">
     <div class="section-tag">The Book</div>
     <div class="section-title">The Philosophy Behind SeeBuild</div>
-    <p class="section-sub">Before the product — a mindset. The book describes how SeeBuild AI thinks, observes, and works alongside engineers on site.</p>
+    <p class="section-sub">Before the product — a mindset. The book describes how SeeBuild AI thinks, observes, and works alongside builders on site.</p>
   </div>
   <div class="book-card">
     <div class="book-icon">📖</div>
     <div class="book-info">
       <h3>SeeBuild: I See What I Build</h3>
       <p>
-        An engineering mindset on the construction site. The book explores how control
-        becomes part of observation — not a delayed procedure. It lays out the philosophy
-        that drives the SeeBuild AI: context over data, clarity over complexity, and
-        decisions that remain human.
+        An engineering mindset on the construction site. Explores how control becomes
+        part of observation — not a delayed procedure. Lays out the philosophy that drives
+        the SeeBuild AI: context over data, clarity over complexity, human judgment at the center.
+        <br /><strong style="color:var(--text)">By Andrii Drozdovskyi — available on Amazon.</strong>
       </p>
-      <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener">
+      <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener noreferrer">
         Read on Amazon →
       </a>
     </div>
   </div>
 </section>
 
-<!-- IP / LEGAL -->
-<section style="background: var(--surface); padding: 60px 5%;">
+<!-- IP -->
+<section class="ip-section">
   <div class="centered">
     <div class="section-tag">Intellectual Property</div>
     <div class="section-title">Protected & Building Globally</div>
@@ -764,8 +615,37 @@
   </div>
 </section>
 
+<!-- INVEST / PARTNER -->
+<section class="invest" id="invest">
+  <div class="centered">
+    <div class="section-tag">Opportunity</div>
+    <div class="section-title">Join the Future of Construction</div>
+    <p class="section-sub">SeeBuild is built to be a global platform. The construction industry is a multi-trillion dollar market — and quality control is still done manually. That's the gap SeeBuild fills.</p>
+  </div>
+  <div class="invest-grid">
+    <div class="invest-card">
+      <div class="invest-icon">💼</div>
+      <div class="invest-label">Investors</div>
+      <h3>Pre-Seed Investment</h3>
+      <p>Get in at the ground floor of a patented AI + AR construction platform with a proven concept, a published book, and a founder with 20+ years on real construction sites.</p>
+    </div>
+    <div class="invest-card">
+      <div class="invest-icon">🤝</div>
+      <div class="invest-label">Corporations</div>
+      <h3>Strategic Partnership</h3>
+      <p>Large construction firms and tech companies can integrate SeeBuild into existing workflows or co-develop specialized vertical solutions.</p>
+    </div>
+    <div class="invest-card">
+      <div class="invest-icon">📄</div>
+      <div class="invest-label">Licensing</div>
+      <h3>License the Technology</h3>
+      <p>Interested in deploying SeeBuild under your brand or within your platform? Licensing options available for regional and global partners.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ROADMAP -->
-<section id="roadmap">
+<section id="roadmap" style="background: var(--surface2);">
   <div class="section-tag">Roadmap</div>
   <div class="section-title">Where We're Headed</div>
   <div class="roadmap-list">
@@ -773,7 +653,7 @@
       <div class="roadmap-q">Q2 '26</div>
       <div>
         <h3>Discovery & Validation</h3>
-        <p>Interviews with general contractors and site supervisors, mapping use-case scenarios, selecting pilot partners.</p>
+        <p>Mapping real construction scenarios, refining the AI model, engaging early-stage investors and pilot partners.</p>
       </div>
       <span class="roadmap-badge now">Now</span>
     </div>
@@ -781,7 +661,7 @@
       <div class="roadmap-q">Q3 '26</div>
       <div>
         <h3>POC on a Real Site</h3>
-        <p>Wall verticality and geometry deviation detection. AR labels + automated inspection report. First SeeBuild AI feedback loop.</p>
+        <p>Live deviation detection on an active construction site. AR labels + automated report. First SeeBuild AI learning iteration.</p>
       </div>
       <span class="roadmap-badge soon">Soon</span>
     </div>
@@ -789,48 +669,50 @@
       <div class="roadmap-q">Q4 '26</div>
       <div>
         <h3>Closed Pilot</h3>
-        <p>Full cycle: detection → AR → voice → cloud report. Country-aware building codes active. First partner feedback and AI learning iteration.</p>
+        <p>Full cycle: detection → AR → voice → cloud report. Country-aware building codes live. Metrics, feedback, AI refinement.</p>
       </div>
       <span class="roadmap-badge later">Planned</span>
     </div>
     <div class="roadmap-item">
       <div class="roadmap-q">2027</div>
       <div>
-        <h3>Public Launch & Global Scale</h3>
-        <p>Multi-project cloud, BIM integrations, smart glasses support, expansion to international markets with localized building standards.</p>
+        <h3>Global Launch & Licensing</h3>
+        <p>Multi-project cloud, BIM integrations, smart glasses support, international rollout with localized building standards.</p>
       </div>
       <span class="roadmap-badge later">Future</span>
     </div>
   </div>
 </section>
 
-<!-- PILOT FORM -->
-<section class="pilot" id="pilot">
+<!-- CONTACT -->
+<section class="contact" id="contact">
   <div class="centered">
-    <div class="section-tag">Pilot</div>
-    <div class="section-title">Become a Pilot Partner</div>
-    <p class="section-sub">Looking for general contractors and developers with active sites to run the first real-world POC together.</p>
+    <div class="section-tag">Contact</div>
+    <div class="section-title">Let's Build Something Together</div>
+    <p class="section-sub">Whether you're an investor, a strategic partner, or want to license the technology — reach out and let's talk.</p>
   </div>
-  <div class="pilot-wrap">
-    <form action="[formspree.io](https://formspree.io/f/mvznoodn)" method="POST">
-      <input type="hidden" name="_subject" value="New Pilot Application — SeeBuild" />
-      <input type="hidden" name="_next" value="[seebuild.tech](https://seebuild.tech/#pilot)" />
+  <div class="contact-wrap">
+    <form
+      action="[formspree.io](https://formspree.io/f/mvznoodn)"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value="SeeBuild — New Inquiry" />
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="John Smith" required />
       </div>
       <div class="form-group">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" placeholder="BuildCorp Ltd." required />
+        <label for="company">Company / Organization</label>
+        <input type="text" id="company" name="company" placeholder="BuildCorp Ltd." />
       </div>
       <div class="form-group">
-        <label for="role">Your Role</label>
-        <select id="role" name="role" required>
-          <option value="" disabled selected>Select your role</option>
-          <option>General Contractor</option>
-          <option>Developer</option>
-          <option>Site Supervisor</option>
-          <option>Investor</option>
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Investment (Pre-Seed)</option>
+          <option>Strategic Partnership</option>
+          <option>Technology Licensing</option>
+          <option>Pilot Program</option>
           <option>Other</option>
         </select>
       </div>
@@ -838,18 +720,18 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="john@buildcorp.com" required />
       </div>
-      <div class="checkbox-row">
-        <input type="checkbox" id="hasProject" name="has_active_site" value="yes" />
-        <label for="hasProject">I have an active construction site available for the pilot</label>
+      <div class="form-group">
+        <label for="message">Message (optional)</label>
+        <textarea id="message" name="message" rows="3" placeholder="Tell me more about what you have in mind..."></textarea>
       </div>
-      <button type="submit" class="form-submit">Submit Application →</button>
-      <p class="form-note">We respond within 24 hours. No spam, ever.</p>
+      <button type="submit" class="form-submit">Send Message →</button>
+      <p class="form-note">Replied within 24 hours. No spam.</p>
     </form>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section style="background: var(--surface2);">
+<section style="background: var(--surface);">
   <div class="centered">
     <div class="section-tag">Founder</div>
     <div class="section-title">The Person Behind SeeBuild</div>
@@ -862,17 +744,17 @@
       <h3>Andrii Drozdovskyi</h3>
       <div class="about-role">Founder & Inventor · SeeBuild</div>
       <p>
-        Founder and concept author of SeeBuild. Combines hands-on knowledge of
-        construction processes with a systems-level approach to AI product design.
-        Author of <em>"SeeBuild: I See What I Build"</em> — the book that lays out
-        the engineering philosophy behind the platform. Trademark registered in Ukraine,
-        international patent application filed with WIPO.
-        Open to partnerships and pre-seed investment.
+        20+ years working in construction — on real sites, with real teams, facing real problems.
+        SeeBuild was born from that experience: a platform built by someone who has lived the
+        pain of late-detected errors, manual inspections, and preventable reworks.
+        Author of <em>"SeeBuild: I See What I Build"</em> — the engineering philosophy behind the AI.
+        Trademark registered in Ukraine. International patent application filed with WIPO.
+        Open to investment, partnerships, and licensing.
       </p>
       <div class="about-links">
         <a href="mailto:SeeBuild@proton.me" class="about-link">✉ SeeBuild@proton.me</a>
-        <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener" class="about-link">📖 Book</a>
-        <a href="#pilot" class="about-link">📋 Join Pilot</a>
+        <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener noreferrer" class="about-link">📖 Book</a>
+        <a href="#contact" class="about-link">💬 Get in Touch</a>
       </div>
     </div>
   </div>
@@ -884,15 +766,16 @@
     <img src="logo.png" alt="SeeBuild" />
     <span class="footer-logo-text">SeeBuild</span>
   </div>
-  <p>© 2026 SeeBuild. AI + AR Construction Quality Control. &nbsp;·&nbsp; I See What I Build</p>
+  <p>© 2026 SeeBuild · I See What I Build · AI + AR Construction Quality Control</p>
   <div class="footer-contact">
     <a href="mailto:SeeBuild@proton.me">SeeBuild@proton.me</a>
-    <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener">Book</a>
-    <a href="#pilot">Join Pilot</a>
+    <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener noreferrer">Book</a>
+    <a href="#contact">Contact</a>
   </div>
 </footer>
 
 <script>
+  // Burger menu
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => navLinks.classList.toggle('open'));
