@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SeeBuild — I See What I Build</title>
-  <meta name="description" content="SeeBuild reduces construction errors to a minimum — cutting build time and costs. AI + AR quality control from any mobile device. Open to investors and licensing partners." />
+  <meta name="description" content="SeeBuild is a camera-first AI construction quality-control platform designed for a wide range of smartphones and connected wearable devices. It detects deviations early and supports workers with visual, voice, and vibration guidance. Open to investors and licensing partners." />
   <meta property="og:title" content="SeeBuild — I See What I Build" />
-  <meta property="og:description" content="AI + AR hybrid system that minimizes construction errors in real time. Fewer mistakes — shorter timelines — lower costs." />
+  <meta property="og:description" content="Camera-first AI construction quality control for smartphones and connected wearables — designed to detect deviations early and guide teams through visual, voice, and vibration feedback." />
   <meta property="og:type" content="website" />     
   <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="preconnect" href="https://googleapis.com" />
@@ -160,6 +160,17 @@
     .mission-quote span { color: var(--accent); }
     .mission-sub { margin-top: 1rem; color: var(--muted); font-size: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
+    /* ── CURRENT STATUS ── */
+    .status-section { background: var(--bg); }
+    .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.25rem; margin-top: 3rem; }
+    .status-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+    .status-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .55rem; }
+    .status-card p { color: var(--muted); font-size: .9rem; }
+    .status-state { display: inline-block; margin-bottom: .9rem; padding: .25rem .7rem; border-radius: 999px; font-size: .7rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+    .status-state.ready { background: rgba(0,229,160,.12); color: var(--green); }
+    .status-state.building { background: rgba(0,194,255,.1); color: var(--accent); }
+    .status-state.planned { background: rgba(123,92,255,.1); color: var(--accent2); }
+
     /* ── PROBLEM ── */
     .problem { background: var(--surface); }
     .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 3rem; }
@@ -251,8 +262,8 @@
     .roadmap-item h3 { font-size: .95rem; font-weight: 700; margin-bottom: .25rem; }
     .roadmap-item p { color: var(--muted); font-size: .85rem; }
     .roadmap-badge { margin-left: auto; flex-shrink: 0; padding: .2rem .75rem; border-radius: 999px; font-size: .7rem; font-weight: 700; text-transform: uppercase; }
-    .roadmap-badge.now   { background: rgba(0,229,160,.12); color: var(--green); }
-    .roadmap-badge.soon  { background: rgba(0,194,255,.1);  color: var(--accent); }
+    .roadmap-badge.done  { background: rgba(0,229,160,.12); color: var(--green); }
+    .roadmap-badge.now   { background: rgba(0,194,255,.1);  color: var(--accent); }
     .roadmap-badge.later { background: rgba(123,92,255,.1); color: var(--accent2); }
 
     /* ── CONTACT FORM ── */
@@ -340,7 +351,7 @@
     <h1>
       Minimize Construction Errors<br />
       with <span class="hl">AI + AR</span> —<br />
-      from any <span class="hl2">Mobile Device</span>
+      on <span class="hl2">Smartphones &amp; Wearables</span>
     </h1>
     <p>
       Fewer errors means shorter build time and lower costs.
@@ -379,6 +390,36 @@
     Built to be accessible to every builder on the planet — from a solo contractor to a global construction firm.
   </p>
 </div>
+
+<!-- CURRENT DEVELOPMENT STATUS -->
+<section class="status-section" id="status">
+  <div class="centered">
+    <div class="section-tag">Current Development Status</div>
+    <div class="section-title">From Working Android Prototype to Field-Validated Platform</div>
+    <p class="section-sub">
+      SeeBuild is being developed in stages. The current prototype proves the mobile workflow,
+      while the construction AI, drawing comparison, sensor fusion, and wearable assistance
+      are being built and validated before wider deployment.
+    </p>
+  </div>
+  <div class="status-grid">
+    <div class="status-card">
+      <span class="status-state ready">Prototype Available</span>
+      <h3>Android Mobile Foundation</h3>
+      <p>Camera interface, voice interaction, multilingual support, location and weather context, and an offline-first application architecture.</p>
+    </div>
+    <div class="status-card">
+      <span class="status-state building">In Active Development</span>
+      <h3>Construction Intelligence</h3>
+      <p>Local object recognition, project drawing and BIM comparison, sensor-adaptive guidance, and a controlled continuous-learning pipeline.</p>
+    </div>
+    <div class="status-card">
+      <span class="status-state planned">Field Validation Planned</span>
+      <h3>Real-Site Pilots</h3>
+      <p>Accuracy, safety, workflow impact, and smartwatch-assisted guidance will be measured and validated on active construction sites.</p>
+    </div>
+  </div>
+</section>
 
 <!-- PROBLEM -->
 <section class="problem">
@@ -419,17 +460,17 @@
     <div class="step">
       <div class="step-num">1</div>
       <h3>Point Your Device</h3>
-      <p>Computer Vision analyzes structural elements in real time — walls, rebar, geometry — and instantly compares them to project documentation. Works on any mobile device: smartphone, tablet, or smart glasses.</p>
+      <p>The smartphone acts as the main processing hub. Camera-first computer vision is designed to analyze walls, reinforcement, openings, geometry, and other site elements, while advanced AR or depth features activate only on supported hardware.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Get Instant AR Feedback</h3>
-      <p>Deviations appear directly on screen as AR overlays: lines, zones, and labels showing the exact error size. A voice assistant tells the team what to correct — without stopping work.</p>
+      <h3>Get Visual, Voice &amp; Wearable Feedback</h3>
+      <p>SeeBuild is designed to show deviations as visual overlays and provide short voice guidance. Connected smartwatches or headsets can add vibration and directional prompts when a worker's hands are occupied — for example, “move the formwork panel 5 cm to the right.”</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Auto-Report & Sync</h3>
-      <p>An inspection report is generated automatically and synced to the cloud. The full decision history is preserved — accessible to all stakeholders in real time.</p>
+      <h3>Auto-Report &amp; Sync</h3>
+      <p>An inspection report is designed to be generated automatically, stored locally when needed, and synchronized with the cloud when connectivity is available. The decision history remains available to authorized project stakeholders.</p>
     </div>
   </div>
 </section>
@@ -440,16 +481,16 @@
   <div class="section-title">A Hybrid AI Built on 20+ Years of Construction Reality</div>
   <div class="ai-grid">
     <div class="ai-text">
-      <h3>An AI that thinks like an experienced builder — and gets smarter on every project</h3>
+      <h3>An AI grounded in construction experience — improved through controlled, validated learning</h3>
       <p>
         SeeBuild has its own AI engine, designed from the ground up with the engineering philosophy
         described in the book <em>"SeeBuild: I See What I Build"</em>. The AI doesn't automate decisions —
         it automates observation, so human judgment stays exactly where it belongs.
       </p>
       <p>
-        From day one, the system carries a global knowledge base of construction standards.
-        With every new project, it learns — expanding its ability to detect, contextualize, and predict
-        deviations before they become problems.
+        From day one, the system is designed to use a structured knowledge base of construction standards.
+        New site data can improve the system only through a controlled continuous-learning pipeline,
+        with validation before any candidate model replaces the stable production model.
       </p>
     </div>
     <div class="ai-features">
@@ -463,8 +504,8 @@
       <div class="ai-feature">
         <div class="ai-feature-icon">🧠</div>
         <div>
-          <h4>Learns From Every Project</h4>
-          <p>Each completed site enriches the global knowledge base — reducing recurring mistakes across all future projects, for all users of the platform.</p>
+          <h4>Controlled Continuous Learning</h4>
+          <p>Difficult or uncertain site cases can be collected for review and retraining. No model update is promoted until it passes defined validation and safety checks.</p>
         </div>
       </div>
       <div class="ai-feature">
@@ -523,29 +564,30 @@
 <!-- BENEFITS -->
 <section id="results">
   <div class="centered">
-    <div class="section-tag">Impact</div>
-    <div class="section-title">What Changes When Errors Are Caught Early</div>
+    <div class="section-tag">Target Impact</div>
+    <div class="section-title">Pilot Targets When Errors Are Caught Early</div>
+    <p class="section-sub">The figures below are target outcomes for field validation and are not presented as independently verified results yet.</p>
   </div>
   <div class="benefits-grid">
     <div class="benefit">
       <div class="benefit-val">−30%</div>
       <h3>Inspection Time</h3>
-      <p>AR-assisted checks are twice as fast as manual measurement and documentation.</p>
+      <p>Target reduction in inspection time through camera, visual, voice, and automated documentation support.</p>
     </div>
     <div class="benefit">
       <div class="benefit-val">−40%</div>
       <h3>Reworks & Waste</h3>
-      <p>Deviations fixed before concrete is poured — not after.</p>
+      <p>Target reduction in avoidable rework and material waste through earlier deviation detection.</p>
     </div>
     <div class="benefit">
       <div class="benefit-val">100%</div>
       <h3>Documented Deviations</h3>
-      <p>Every finding archived automatically. Nothing lost in a group chat.</p>
+      <p>Target documentation coverage for detected deviations, with time, project context, and supporting media.</p>
     </div>
     <div class="benefit">
       <div class="benefit-val">×3</div>
       <h3>Faster Decisions</h3>
-      <p>Voice guidance and AR labels — the crew acts immediately, on site.</p>
+      <p>Target improvement in decision speed through concise on-site guidance and shared project context.</p>
     </div>
   </div>
 </section>
@@ -554,7 +596,7 @@
 <section class="tech">
   <div class="section-tag">Technology</div>
   <div class="section-title">Under the Hood</div>
-  <p class="section-sub" style="margin-top:.5rem">Computer vision, augmented reality, and a self-learning AI — unified in one platform built for any mobile device, today and tomorrow.</p>
+  <p class="section-sub" style="margin-top:.5rem">Camera-first computer vision, optional AR and depth features, controlled continuous learning, and Bluetooth-connected wearable assistance — unified in a sensor-adaptive mobile platform.</p>
   <div class="tech-chips">
     <span class="chip">Computer Vision</span>
     <span class="chip">Augmented Reality (AR)</span>
@@ -566,8 +608,11 @@
     <span class="chip">Country-Aware Building Codes</span>
     <span class="chip">Engineering Memory</span>
     <span class="chip">Automated Documentation</span>
-    <span class="chip">Smart Glasses Ready</span>
-    <span class="chip">Device-Agnostic</span>
+    <span class="chip">Controlled Continuous Learning</span>
+    <span class="chip">Bluetooth Wearable Assistance</span>
+    <span class="chip">Smartwatch Vibration Alerts</span>
+    <span class="chip">Smart Glasses &amp; Headsets</span>
+    <span class="chip">Wide Device Compatibility</span>
   </div>
 </section>
 
@@ -629,7 +674,7 @@
       <div class="invest-icon">💼</div>
       <div class="invest-label">Investors</div>
       <h3>Pre-Seed Investment</h3>
-      <p>Get in at the ground floor of a patented AI + AR construction platform with a proven concept, a published book, and a founder with 20+ years on real construction sites.</p>
+      <p>Get in at the ground floor of a patent-pending AI + AR construction platform with a working mobile foundation, a published book, and a founder with 20+ years on real construction sites.</p>
     </div>
     <div class="invest-card">
       <div class="invest-icon">🤝</div>
@@ -651,27 +696,27 @@
   <div class="section-tag">Roadmap</div>
   <div class="section-title">Where We're Headed</div>
   <div class="roadmap-list">
-    <div class="roadmap-item active">
+    <div class="roadmap-item">
       <div class="roadmap-q">Q2 '26</div>
       <div>
-        <h3>Discovery & Validation</h3>
-        <p>Mapping real construction scenarios, refining the AI model, engaging early-stage investors and pilot partners.</p>
+        <h3>Discovery &amp; Validation</h3>
+        <p>Mapped priority construction scenarios, defined the product architecture, developed the mobile foundation, and engaged potential investors and partners.</p>
       </div>
-      <span class="roadmap-badge now">Now</span>
+      <span class="roadmap-badge done">Completed</span>
     </div>
-    <div class="roadmap-item">
+    <div class="roadmap-item active">
       <div class="roadmap-q">Q3 '26</div>
       <div>
-        <h3>POC on a Real Site</h3>
-        <p>Live deviation detection on an active construction site. AR labels + automated report. First SeeBuild AI learning iteration.</p>
+        <h3>POC Preparation &amp; Construction AI</h3>
+        <p>Develop the local recognition model, drawing comparison workflow, controlled learning pipeline, and field-ready deviation guidance for the first real-site validation.</p>
       </div>
-      <span class="roadmap-badge soon">Soon</span>
+      <span class="roadmap-badge now">Current</span>
     </div>
     <div class="roadmap-item">
       <div class="roadmap-q">Q4 '26</div>
       <div>
         <h3>Closed Pilot</h3>
-        <p>Full cycle: detection → AR → voice → cloud report. Country-aware building codes live. Metrics, feedback, AI refinement.</p>
+        <p>Validate the full cycle: detection → visual guidance → voice or wearable alert → report. Measure accuracy, safety, workflow impact, and user feedback.</p>
       </div>
       <span class="roadmap-badge later">Planned</span>
     </div>
@@ -679,7 +724,7 @@
       <div class="roadmap-q">2027</div>
       <div>
         <h3>Global Launch & Licensing</h3>
-        <p>Multi-project cloud, BIM integrations, smart glasses support, international rollout with localized building standards.</p>
+        <p>Multi-project cloud, BIM integrations, smartwatch and smart-glasses support, and international rollout with localized building standards.</p>
       </div>
       <span class="roadmap-badge later">Future</span>
     </div>
@@ -750,12 +795,12 @@
         SeeBuild was born from that experience: a platform built by someone who has lived the
         pain of late-detected errors, manual inspections, and preventable reworks.
         Author of <em>"SeeBuild: I See What I Build"</em> — the engineering philosophy behind the AI.
-        Trademark registered in Ukraine. International patent application filed with WIPO.
+        Trademark application filed in Ukraine. International patent application filed with WIPO.
         Open to investment, partnerships, and licensing.
       </p>
       <div class="about-links">
         <a href="mailto:SeeBuild@proton.me" class="about-link">✉ SeeBuild@proton.me</a>
-        <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener noreferrer" class="about-link">📖 Book</a>
+        <a href="https://www.amazon.com/dp/B0GT6M2ZDH" target="_blank" rel="noopener noreferrer" class="about-link">📖 Book</a>
         <a href="#contact" class="about-link">💬 Get in Touch</a>
       </div>
     </div>
@@ -771,7 +816,7 @@
   <p>© 2026 SeeBuild · I See What I Build · AI + AR Construction Quality Control</p>
   <div class="footer-contact">
     <a href="mailto:SeeBuild@proton.me">SeeBuild@proton.me</a>
-    <a href="[amazon.com](https://www.amazon.com/dp/B0GT6M2ZDH)" target="_blank" rel="noopener noreferrer">Book</a>
+    <a href="https://www.amazon.com/dp/B0GT6M2ZDH" target="_blank" rel="noopener noreferrer">Book</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
